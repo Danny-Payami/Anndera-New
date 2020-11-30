@@ -112,6 +112,14 @@ client.on("message", async (message) => {
  }
 });
 
+function delay(delayInms) {
+ return new Promise(resolve => {
+   setTimeout(() => {
+     resolve(2);
+   }, delayInms);
+ });
+}
+
 
 client.on("guildCreate", guild => {
   let channel = client.channels.cache.get("765708397122682881");
@@ -140,10 +148,3 @@ client.on("guildDelete", guild => {
 });
 
 
-function delay(delayInms) {
- return new Promise(resolve => {
-   setTimeout(() => {
-     resolve(2);
-   }, delayInms);
- });
-}
