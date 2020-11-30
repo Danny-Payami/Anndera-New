@@ -19,7 +19,8 @@ execute(message, args) {
     //if not in a guild return
     if (!message.guild) return;
     //react with approve
-    message.react("✅").catch(console.error);
+    message.react("✅")
+      message.delete({timeout: 300}) .catch(console.error);
     //if no args return error
     if (!args.length)
       return attentionembed(message, `Try: ${message.client.prefix}${module.exports.name} <Queue Number>`)
