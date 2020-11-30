@@ -16,6 +16,7 @@ module.exports = {
   edesc: `Just type the Command in the chat to activate/deactivate loop, you can also react to the loop emoji, to receive the same goal!\nUsage: ${PREFIX}loop`,
 async execute(message) {
     //if not in a Guild return
+   message.delete({timeout: 300}) 
     if(!message.guild) return;
     //Get the current Queue
     const queue = message.client.queue.get(message.guild.id);
@@ -28,7 +29,7 @@ async execute(message) {
     //Define the Loop embed
     const loopembed = new MessageEmbed()
     .setColor(queue.loop ? "#ff0505" : "#ff0505")
-    .setAuthor(`Loop is now ${queue.loop ? " enabled" : " disabled"}`, "https://cdn.discordapp.com/emojis/769913064194834511.png")
+    .setAuthor(`Loop is now ${queue.loop ? " On" : " Off"}`, "")
     //react with approve emoji
     message.react("✅");
     //send message into the Queue chat
