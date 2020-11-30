@@ -11,12 +11,13 @@ const { PREFIX } = require("../config.json");
 module.exports = {
   name: "remove",
   description: "Remove song from the queue",
-  aliases: ["delete"],
+  aliases: ["re"],
   cooldown: 1.5,
   edesc: `Type this command to remove a specific song from the queue.\nUsage: ${PREFIX}remove <Queue num.>`,
 
 execute(message, args) {
   //if its not a guild return
+  message.delete({timeout: 300}) 
     if(!message.guild) return;
     //get the queue
     const queue = message.client.queue.get(message.guild.id);
