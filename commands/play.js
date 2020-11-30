@@ -9,7 +9,7 @@ module.exports = {
   aliases: ["p"],
   description: "Plays song from YouTube/Stream",
   cooldown: 1.5,
-  edesc: `Type this command to play some music.\nUsage: ${PREFIX}play <TITLE | URL>`,
+  edesc: "Type this command to play some music.\nUsage: ${PREFIX}play <TITLE | URL>",
 
 async execute(message, args, client) {
     //If not in a guild return
@@ -130,6 +130,7 @@ async execute(message, args, client) {
     if (song.thumbnail === undefined) thumb = "https://cdn.discordapp.com/attachments/748095614017077318/769672148524335114/unknown.png";
     else thumb = song.thumbnail.url;
     //if there is a server queue send that message!
+  message.delete({timeout: 300})
     if (serverQueue) {
       //Calculate the estimated Time
       let estimatedtime = Number(0);
