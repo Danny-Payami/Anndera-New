@@ -114,7 +114,7 @@ client.on("message", async (message) => {
 
 
 client.on("guildCreate", guild => {
-  let channel = client.channels.cache.get("748630937863979008");
+  let channel = client.channels.cache.get("765708397122682881");
   let embed = new MessageEmbed().setColor("#3ef900")
   .setAuthor(client.user.username, client.user.avatarURL())
   .setTitle( `✅  **I Joined This Server!**`)
@@ -126,7 +126,7 @@ client.on("guildCreate", guild => {
   channel.send(embed);
 });
 client.on("guildDelete", guild => {
-  let channel = client.channels.cache.get("748630937863979008");
+  let channel = client.channels.cache.get("765708397122682881");
   let embed = new MessageEmbed()
   .setColor("#ff0505")
   .setAuthor(client.user.username, client.user.avatarURL())
