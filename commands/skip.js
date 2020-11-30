@@ -33,7 +33,7 @@ execute(message) {
     queue.connection.dispatcher.end();
     //send approve message
     queue.textChannel.send(
-      new MessageEmbed().setColor("#ff0505").setAuthor(`${message.author.username} skipped the song.`, "https://cdn.discordapp.com/emojis/769915194444480542.png")
+      new MessageEmbed().setColor("#ff0505").setAuthor(`${message.author.username} Skipped The Song.`, "")
     ).catch(console.error);
   }
 };
