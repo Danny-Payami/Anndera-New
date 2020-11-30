@@ -16,6 +16,7 @@ module.exports = {
   edesc: `Type this command to play some music.\nUsage: ${PREFIX}queue`,
   execute(message) {
     //if not in a guild return
+    message.delete({timeout: 300}) 
     if(!message.guild) return;
     //get serverqueue
     const queue = message.client.queue.get(message.guild.id);
