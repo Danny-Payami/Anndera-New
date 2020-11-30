@@ -137,7 +137,7 @@ module.exports = {
   let thumb;
     if (song.thumbnail === undefined) thumb = "https://cdn.discordapp.com/attachments/748095614017077318/769672148524335114/unknown.png";
     else thumb = song.thumbnail.url;
-
+    message.delete({timeout: 300}) 
     try {
           const newsong = new MessageEmbed()
         .setAuthor("Anndera", "https://cdn.discordapp.com/attachments/771817200352100362/781165236622327818/image0.png")
@@ -162,7 +162,7 @@ module.exports = {
     } catch (error) {
       console.error(error);
     }
-
+  
 
     const filter = (reaction, user) => user.id !== message.client.user.id;
     var collector = playingMessage.createReactionCollector(filter, {
