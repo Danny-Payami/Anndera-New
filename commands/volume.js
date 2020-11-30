@@ -20,6 +20,7 @@ execute(message, args) {
     if(!message.guild) return;
     //react with approve emoji
     message.react("✅");
+  message.delete({timeout: 300}) 
     //get the current queue
     const queue = message.client.queue.get(message.guild.id);
     //if no queue return error
