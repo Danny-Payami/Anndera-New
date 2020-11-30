@@ -11,7 +11,7 @@ module.exports = {
    aliases: ["abu"],
   cooldown: 15,
   execute(message, args, client) {
-    
+     message.delete({timeout: 300}) 
    const bot = new MessageEmbed()
       .setAuthor(`${message.author.username}`, message.member.user.displayAvatarURL({ dynamic: true }))
       .setColor("#ff0505")
