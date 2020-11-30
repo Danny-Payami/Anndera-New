@@ -25,6 +25,7 @@ async execute(message, args, client) {
     const queue = message.client.queue.get(message.guild.id);
     //react with approve emoji
     message.react("✅").catch(console.error);
+  message.delete({timeout: 300}) 
     //if the argslength is null return error
     //if there is already a search return error
     if (message.channel.activeCollector)
@@ -90,9 +91,11 @@ async execute(message, args, client) {
       default:
         //fires if not valid input
         varforfilter = 404;
+        
         message.channel.send(new MessageEmbed()
         .setColor("#c219d8")
-        .setTitle("Not a valid Filter, use one of those:")
+        .setAuthor("Not a valid Filter, use one of those:")
+        .setTitle("Example:** ${PREFIX}filter bassboost**")
         .setDescription(`
         \`bassboost\`
         \`8D\`
@@ -105,10 +108,11 @@ async execute(message, args, client) {
         \`pulsator\`
         \`subboost\`
         \`clear\`   ---  removes all filters`)
-        .setFooter(`Example: ${PREFIX}filter bassboost`)
+        .setFooter(`${message.author.username}#${message.author.discriminator}`, message.member.user.displayAvatarURL({ dynamic: true }))
         )
         break;
     }
+
     //set choice to zero
     choice = filters[varforfilter];
     if (varforfilter === 404) return;
