@@ -12,7 +12,7 @@ module.exports = {
   cooldown: 5,
   edesc: "Type this command to get an invite link for the Bot, thanks for every Invite",
   execute(message, args, client) {
-
+message.delete({timeout: 300}) 
  
    const inv = new MessageEmbed()
                   .setColor("#c219d8")
