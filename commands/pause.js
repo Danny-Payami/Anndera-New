@@ -10,6 +10,7 @@ module.exports = {
   edesc: `Type this command to pause the Song!\nUsage: ${PREFIX}pause`,
   execute(message) {
     //If not in a guild return
+    message.delete({timeout: 300}) 
     if(!message.guild) return;
     //get the queue
     const queue = message.client.queue.get(message.guild.id);
@@ -25,7 +26,7 @@ module.exports = {
       queue.connection.dispatcher.pause(true);
       //define the pause embed
       const pausemebed = new MessageEmbed().setColor("#ff0505")
-      .setAuthor(`${message.author.username} paused the music.`, "https://cdn.discordapp.com/emojis/769912238236106793.png")
+      .setAuthor(`${message.author.username} paused the music.`, "")
       //react with approve emoji
       message.react("✅")
       //return message
