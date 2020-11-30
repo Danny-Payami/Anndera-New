@@ -208,11 +208,11 @@ module.exports = {
           break;
           
         case "⏭":
-            queue.playing = true;
+        queue.playing = true;
           reaction.users.remove(user).catch(console.error);
           if (!canModifyQueue(member)) return;
-          queue.connection.dispatcher.end
-          const skipembed = new MessageEmbed().setColor("#ff0505").setAuthor(`${user.username}  skipped the song`, "https://cdn.discordapp.com/attachments/771817200352100362/781165237083832330/image0.png")
+          queue.connection.dispatcher.end();
+          const skipembed = new MessageEmbed().setColor("#ff0505").setAuthor(`${user.username} skipped the song.`, "")
           queue.textChannel.send(skipembed).catch(console.error);
 
           collector.stop();
