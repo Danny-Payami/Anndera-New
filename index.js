@@ -22,12 +22,15 @@ client.on("ready", () => {
         (a, g) => a + g.memberCount,
         0
       )}, Guilds ${client.guilds.cache.size}`
-    ); ///Danny
+    );
     client.user.setActivity(
-      `<help | Users ${client.guilds.cache.reduce(
+      `_help | Users ${client.guilds.cache.reduce(
         (a, g) => a + g.memberCount,
-        0 )} | Servers ${client.guilds.cache.size}` ) }, 15000);
-});
+        0
+      )} | Servers ${client.guilds.cache.size}`
+    );
+  }, 15000);
+}); 
 
 client.on("warn", (info) => console.log(info));
 client.on("error", console.error);
