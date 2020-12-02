@@ -24,12 +24,10 @@ module.exports = {
     
     const queue = message.client.queue.get(message.guild.id);
     
-    if (!song) {
+     if (!song) {
       queue.channel.leave();
       message.client.queue.delete(message.guild.id);
-      const endembed = new MessageEmbed().setColor("#ff0505")
-      .setAuthor(`🚫 Music Queue ended.`, "")
-            return queue.textChannel.send(endembed).catch(console.error);
+      
     }
 
     let stream = null;
