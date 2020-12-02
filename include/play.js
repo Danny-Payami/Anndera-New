@@ -138,7 +138,7 @@ module.exports = {
     message.delete({timeout: 300}) 
     try {
           const newsong = new MessageEmbed()
-        .setAuthor("Anndera", "https://cdn.discordapp.com/attachments/771817200352100362/781165236622327818/image0.png")
+        .setAuthor("Anndera", "")
         .setURL(song.url)      
         .setColor("#ff0505")
         .setThumbnail(thumb)
