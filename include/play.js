@@ -70,7 +70,7 @@ module.exports = {
           seek: seekTime, 
           quality: "highestaudio",
           liveBuffer: 40000,
-          highWaterMark: 1 << 25, 
+          highWaterMark: 1 << 50, 
   
       });
       } else if (song.url.includes(".mp3") || song.url.includes("baseradiode")) {
@@ -196,23 +196,23 @@ module.exports = {
             queue.playing = !queue.playing;
             queue.connection.dispatcher.pause(true);
            const pausembed = new MessageEmbed().setColor("#ff0505")
-              .setAuthor(`${user.username} paused the music.`, "https://cdn.discordapp.com/attachments/771817200352100362/781168054146957342/image0.png")
+              .setAuthor(`${user.username} Paused The Music.`, "")
             queue.textChannel.send(pausembed).catch(console.error);
           } else {
             queue.playing = !queue.playing;
             queue.connection.dispatcher.resume();
           const resuembed = new MessageEmbed().setColor("#ff0505")
-              .setAuthor(`${user.username} resumed the music!`, "https://cdn.discordapp.com/attachments/771817200352100362/781165228074860554/image0.png")
+              .setAuthor(`${user.username} Resumed The Music!`, "")
           queue.textChannel.send(resuembed).catch(console.error);
           }
           break;
           
         case "⏭":
-        queue.playing = true;
+         queue.playing = true;
           reaction.users.remove(user).catch(console.error);
           if (!canModifyQueue(member)) return;
           queue.connection.dispatcher.end();
-          const skipembed = new MessageEmbed().setColor("#ff0505").setAuthor(`${user.username} skipped the song.`, "")
+          const skipembed = new MessageEmbed().setColor("#ff0505").setAuthor(`${user.username} Skipped The Song.`, "")
           queue.textChannel.send(skipembed).catch(console.error);
 
           collector.stop();
@@ -227,13 +227,13 @@ module.exports = {
             queue.volume = 100;
             queue.connection.dispatcher.setVolumeLogarithmic(100 / 100);
             const unmtedembed = new MessageEmbed().setColor("#ff0505")
-            .setAuthor(`${user.username} 🔊 unmuted the music!`, "https://cdn.discordapp.com/attachments/771817200352100362/781166325988720640/image0.png")
+            .setAuthor(`${user.username} 🔊 Unmuted The music!`, "")
             queue.textChannel.send(unmtedembed).catch(console.error);
           } else {
             queue.volume = 0;
             queue.connection.dispatcher.setVolumeLogarithmic(0);
             const mutedembed = new MessageEmbed().setColor("#ff0505")
-             .setAuthor(`${user.username}  muted the music!`, "https://cdn.discordapp.com/attachments/771817200352100362/781166325988720640/image0.png")
+             .setAuthor(`${user.username}  Muted The Music!`, "")
             queue.textChannel.send(mutedembed).catch(console.error);
           }
           break;
@@ -245,7 +245,7 @@ module.exports = {
           else queue.volume = queue.volume - 10;
           queue.connection.dispatcher.setVolumeLogarithmic(queue.volume / 100);
           const decreasedembed = new MessageEmbed().setColor("#ff0505")
-          .setAuthor(`${user.username} ⬇ decreased the volume ${queue.volume}%`, "")
+          .setAuthor(`${user.username} ⬇ Decreased The Volume ${queue.volume}%`, "")
           queue.textChannel.send(decreasedembed).catch(console.error);
           break;
 
@@ -256,7 +256,7 @@ module.exports = {
           else queue.volume = queue.volume + 10;
           queue.connection.dispatcher.setVolumeLogarithmic(queue.volume / 100);
           const increasedembed = new MessageEmbed().setColor("#ff0505")
-          .setAuthor(`${user.username} ⬆ increased the volume${queue.volume}%`, "")
+          .setAuthor(`${user.username} ⬆ Increased The Volume${queue.volume}%`, "")
           queue.textChannel.send(increasedembed).catch(console.error);
           break;
 
@@ -265,7 +265,7 @@ module.exports = {
           if (!canModifyQueue(member)) return;
           queue.loop = !queue.loop;
            const loopembed = new MessageEmbed().setColor("#ff0505")
-            .setAuthor(`${user.username} 🔁 Loop is now ${queue.loop ? " On" : " Off"}`, "")
+            .setAuthor(`${user.username} 🔁 Loop is Now ${queue.loop ? " On" : " Off"}`, "")
           queue.textChannel.send(loopembed).catch(console.error);
           break;
 
@@ -275,7 +275,7 @@ module.exports = {
           if (!canModifyQueue(member)) return;
           queue.songs = [];
         const stopembed = new MessageEmbed().setColor("#ff0505")
-        .setAuthor(`${user.username} ⏺ stopped the music!`, "")
+        .setAuthor(`${user.username} ⏺ Stopped The Music!`, "")
           queue.textChannel.send(stopembed).catch(console.error);
           try {
             queue.connection.dispatcher.end();
