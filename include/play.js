@@ -27,8 +27,10 @@ module.exports = {
      if (!song) {
       queue.channel.leave();
       message.client.queue.delete(message.guild.id);
-      
-    }
+     const endembed = new MessageEmbed().setColor("#ff0505")
+      .setAuthor(` ⛔ Music Ended.`, "")
+            return queue.textChannel.send(endembed).catch(console.error);
+     }
 
     let stream = null;
     let streamType = song.url.includes("youtube.com") ? "opus" : "ogg/opus";
