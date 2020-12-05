@@ -146,7 +146,7 @@ module.exports = {
         .setThumbnail(thumb)
   
         .addField('Music Name :' , `[${song.title}](${song.url})`)
-        .addField("Duration:", `${song.duration} Minutes`, true)
+        .addField("Music Time :", `${song.duration} Minutes`, true)
         .addField("Voice Channel :", `${channel.name}` )
         .addField("Text Channel :", `${message.channel.name}` )
         .setFooter(`Requested by: ${message.author.username}#${message.author.discriminator}`, message.member.user.displayAvatarURL({ dynamic: true }))
