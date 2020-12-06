@@ -13,7 +13,7 @@ module.exports = {
     let helpEmbed = new MessageEmbed()
       .setTitle("```List Of All Commands Anndera:```")
       .setAuthor(`${message.author.username}#${message.author.discriminator}`, message.member.user.displayAvatarURL({ dynamic: true }))
-      .setDescription("**[INVITE](https://discord.com/oauth2/authorize?client_id=768136969431416842&permissions=1140326208&scope=bot)** | **[SUPPORT](https://discord.gg/U7prcSp)**")
+      .setDescription("**[INVITE](https://discord.com/oauth2/authorize?client_id=768136969431416842&permissions=1140326208&scope=bot)** | **[SUPPORT](https://discord.gg/ecz5fX8nv8)**")
       .setColor("#ff0505")
       .setImage(
         "https://cdn.discordapp.com/attachments/748630945640349756/776145752849645598/image0.gif"
