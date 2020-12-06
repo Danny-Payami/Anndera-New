@@ -18,7 +18,7 @@ module.exports = {
       .setImage(
         "https://cdn.discordapp.com/attachments/748630945640349756/776145752849645598/image0.gif"
       )
-    .setFooter("Anndera", "");
+    .setFooter("Anndera", "https://cdn.discordapp.com/attachments/748630945640349756/785282450510184558/image0.png");
 
     commands.forEach((cmd) => {
       helpEmbed.addField(
