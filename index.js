@@ -122,7 +122,7 @@ function delay(delayInms) {
 
 
 client.on("guildCreate", guild => {
-  let channel = client.channels.cache.get("785286123135827979");
+  let channel = client.channels.cache.get("786538045758504980");
   let embed = new MessageEmbed().setColor("#3ef900")
   .setAuthor(client.user.username, client.user.avatarURL())
   .setTitle( `✅  **I Joined This Server!**`)
@@ -134,7 +134,7 @@ client.on("guildCreate", guild => {
   channel.send(embed);
 });
 client.on("guildDelete", guild => {
-  let channel = client.channels.cache.get("785286123135827979");
+  let channel = client.channels.cache.get("786538045758504980");
   let embed = new MessageEmbed()
   .setColor("#ff0505")
   .setAuthor(client.user.username, client.user.avatarURL())
