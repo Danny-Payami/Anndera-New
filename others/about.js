@@ -29,7 +29,7 @@ module.exports = {
       .addField("> Support :  ", `> [Server Support Anndera](https://discord.gg/uTDmrGabaS)`)
       .addField("> Bot Owner :  ", `> <@537241026839183371>`)
       .setImage("https://images-ext-2.discordapp.net/external/eSI8AEfgRqH0bP7U-pMdNNmyD91iEmr_sBpTRTVyTZo/https/media.discordapp.net/attachments/761322810144194560/765875969839726622/image3.gif?width=770&height=23")
-      .setFooter(client.user.username, client.user.avatarURL())
+      .setFooter(message.guild.name, message.guild.iconURL());
 
    message.channel.send(bot);
   
