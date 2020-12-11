@@ -22,6 +22,7 @@ module.exports = {
       .addField("> Users : ", `> **${client.guilds.cache.reduce((a, g) => a + g.memberCount,0 )}**`, true)
       .addField("> Bot Name :  ", `> **${client.user.tag}**`, true)
       .addField("> Bot ID :  ", `> **${client.user.id}**`, true)
+      .addField"``Bot Ping :``", `> ${Date.now() - message.createdTimestamp}` + "MS", true)
       .addField("> Ram Usage : ",`> **${(process.memoryUsage().rss / 1048576).toFixed()}MB**`, true)
       .addField("> BotPrefix : ", `> **${prefix}**`, true)
       .addField("> Invite :  ", `> [Add Anndera For Server You.](https://discord.com/api/oauth2/authorize?client_id=${client.user.id}&permissions=1140326208&scope=bot)`)
