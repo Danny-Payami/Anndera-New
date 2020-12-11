@@ -24,7 +24,7 @@ module.exports = {
       .addField("> Bot ID :  ", `> **${client.user.id}**`, true)
       .addField"``Bot Ping :``", `> ${Date.now() - message.createdTimestamp}` + "MS", true)
       .addField("> Ram Usage : ",`> **${(process.memoryUsage().rss / 1048576).toFixed()}MB**`, true)
-      .addField("> BotPrefix : ", `> **${prefix}**`, true)
+      .addField("> BotPrefix : ", `> **${PREFIX}**`, true)
       .addField("> Invite :  ", `> [Add Anndera For Server You.](https://discord.com/api/oauth2/authorize?client_id=${client.user.id}&permissions=1140326208&scope=bot)`)
       .addField("> Support :  ", `> [Server Support Anndera](https://discord.gg/uTDmrGabaS)`)
       .addField("> Bot Owner :  ", `> <@537241026839183371>`)
