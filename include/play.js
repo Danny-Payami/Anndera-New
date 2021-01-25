@@ -19,6 +19,15 @@ module.exports = {
   async play(song, message, client, filters) {
     //get the queue!
     const queue = message.client.queue.get(message.guild.id);
+ const { channel } = message.member.voice;
+    //get serverqueue
+    const serverQueue = message.client.queue.get(message.guild.id);
+    //If not in a channel return error
+    if (!channel) return attentionembed(message, "Please join a Voice Channel first");
+    //If not in the same channel return error
+    if (serverQueue && channel !== message.guild.me.voice.channel)
+      return attentionembed(message, `You must be in the same Voice Channel as me`);
+    
     //if no song provided
     if (!song) {
       //leave the channel
