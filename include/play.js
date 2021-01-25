@@ -35,8 +35,10 @@ module.exports = {
       //delete the queue for this server
       message.client.queue.delete(message.guild.id);
       //define the embed
-      const endembed = new MessageEmbed().setColor("#c219d8")
-        .setAuthor(`Music Queue ended.`, "https://cdn.discordapp.com/emojis/769915194066862080.png")
+      const endembed = new MessageEmbed().setColor("#ff0505")
+        .setAuthor(`Music Queue ended.`, "") .then(message => {
+              message.delete({ timeout: 5000 })
+          });
       //set the embed
       return queue.textChannel.send(endembed).catch(console.error);
     }
@@ -231,13 +233,19 @@ module.exports = {
             queue.connection.dispatcher.pause(true);
            const pausembed = new MessageEmbed().setColor("#ff0505")
               .setAuthor(`${user.username} Paused The Music.`, "")
-            queue.textChannel.send(pausembed).catch(console.error);
+            queue.textChannel.send(pausembed).catch(console.error)
+     .then(message => {
+              message.delete({ timeout: 8000 })
+          });
           } else {
             queue.playing = !queue.playing;
             queue.connection.dispatcher.resume();
           const resuembed = new MessageEmbed().setColor("#ff0505")
               .setAuthor(`${user.username} Resumed The Music!`, "")
-          queue.textChannel.send(resuembed).catch(console.error);
+          queue.textChannel.send(resuembed).catch(console.error)  
+    .then(message => {
+              message.delete({ timeout: 8000 })
+          });
           }
           break;
         //np
@@ -272,7 +280,10 @@ module.exports = {
                             
                             "**__[" + createBar((ms == 0 ? seek : ms), seek, 25, "▬", "⚪")[0] + "]__**\n" +  new Date(seek * 1000).toISOString().substr(11, 8) +  " / "  + (ms == 0 ? " ◉ LIVE" : new Date(ms * 1000).toISOString().substr(11, 8)), false );
         //send approve msg
-        return message.channel.send(nowPlaying);
+        return message.channel.send(nowPlaying)
+     .then(message => {
+              message.delete({ timeout: 6000 })
+          });
       }
 
         break;
@@ -287,7 +298,9 @@ module.exports = {
           queue.textChannel.send(skipembed).catch(console.error);
 
           collector.stop();
-
+    .then(message => {
+              message.delete({ timeout: 10000 })
+          });
           break;
         //lyrics
        case "🔇":
@@ -316,7 +329,10 @@ module.exports = {
           queue.connection.dispatcher.setVolumeLogarithmic(queue.volume / 100);
           const decreasedembed = new MessageEmbed().setColor("#ff0505")
           .setAuthor(`${user.username} ⬇ Decreased The Volume ${queue.volume}%`, "")
-          queue.textChannel.send(decreasedembed).catch(console.error);
+          queue.textChannel.send(decreasedembed).catch(console.error)
+     .then(message => {
+              message.delete({ timeout: 6000 })
+          });
           break;
 
         case "🔊":
@@ -327,7 +343,10 @@ module.exports = {
           queue.connection.dispatcher.setVolumeLogarithmic(queue.volume / 100);
           const increasedembed = new MessageEmbed().setColor("#ff0505")
           .setAuthor(`${user.username} ⬆ Increased The Volume${queue.volume}%`, "")
-          queue.textChannel.send(increasedembed).catch(console.error);
+          queue.textChannel.send(increasedembed).catch(console.error)
+     .then(message => {
+              message.delete({ timeout: 6000 })
+          });
           break;
 
         case "🔄":
@@ -365,7 +384,7 @@ module.exports = {
     collector.on("end", () => {
       playingMessage.reactions.removeAll().catch(console.error);
       if (playingMessage && !playingMessage.deleted) {
-        playingMessage.delete({ timeout: 3000 }).catch(console.error);
+        playingMessage.delete({ timeout: 4000 }).catch(console.error);
       }
     });
   }
