@@ -297,7 +297,7 @@ module.exports = {
           const skipembed = new MessageEmbed().setColor("#ff0505").setAuthor(`${user.username} Skipped The Song.`, "")
           queue.textChannel.send(skipembed).catch(console.error);
 
-          collector.stop();
+          collector.stop()
     .then(message => {
               message.delete({ timeout: 10000 })
           });
