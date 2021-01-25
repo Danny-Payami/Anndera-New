@@ -4,12 +4,15 @@ const { attentionembed } = require("../util/attentionembed");
 const { PREFIX } = require(`../config.json`);
 const ytsr = require("youtube-sr")
 
+////////////////////////////
+//////COMMAND BEGIN/////////
+////////////////////////////
 module.exports = {
   name: "play",
   aliases: ["p"],
   description: "Plays song from YouTube/Stream",
   cooldown: 1.5,
-  edesc: "Type this command to play some music.\nUsage: ${PREFIX}play <TITLE | URL>",
+  edesc: `Type this command to play some music.\nUsage: ${PREFIX}play <TITLE | URL>`,
 
 async execute(message, args, client) {
     //If not in a guild return
@@ -47,7 +50,7 @@ async execute(message, args, client) {
       connection: null,
       songs: [],
       loop: false,
-      volume: 100,
+      volume: 69,
       filters: [],
       realseek: 0,
       playing: true
@@ -86,6 +89,7 @@ async execute(message, args, client) {
        //   message.channel.send(new MessageEmbed().setColor("#c219d8")
          //   .setDescription(`**💢 Searching ⛔ \`${args.join(" ")}\`**`))
         }
+       
         //Set selfdeaf and serverdeaf true
         queueConstruct.connection.voice.setSelfDeaf(true);
         queueConstruct.connection.voice.setDeaf(true);
@@ -125,12 +129,10 @@ async execute(message, args, client) {
         return attentionembed(message, error);
       }
     }
-    //get the thumbnail
     let thumb = "https://cdn.discordapp.com/attachments/748095614017077318/769672148524335114/unknown.png"
     if (song.thumbnail === undefined) thumb = "https://cdn.discordapp.com/attachments/748095614017077318/769672148524335114/unknown.png";
     else thumb = song.thumbnail.url;
-    //if there is a server queue send that message!
-  message.delete({timeout: 300})
+     //if there is a server queue send that message!
     if (serverQueue) {
       //Calculate the estimated Time
       let estimatedtime = Number(0);
@@ -150,9 +152,6 @@ async execute(message, args, client) {
       else {
         estimatedtime = estimatedtime + " Seconds"
       }
-      //Push the ServerQueue
-      serverQueue.songs.push(song);
-      //the new song embed
       const newsong = new MessageEmbed()
         .setTitle("✅" + song.title)
         .setColor("#ff0505")
@@ -167,7 +166,7 @@ async execute(message, args, client) {
         .send(newsong)
         .catch(console.error);
 
-    }
+   }
     //push the song list by 1 to add it to the queu
     queueConstruct.songs.push(song);
     //set the queue
