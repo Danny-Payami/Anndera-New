@@ -91,11 +91,11 @@ async execute(message, args, client) {
       default:
         //fires if not valid input
         varforfilter = 404;
-        
+ 
         message.channel.send(new MessageEmbed()
-        .setColor("#c219d8")
+        .setColor("#ff0505")
         .setAuthor("Not a valid Filter, use one of those:")
-        .setTitle("Example:** ${PREFIX}filter bassboost**")
+        .setTitle("Example: " + `**${PREFIX}**` + " ** filter bassboost ** ")
         .setDescription(`
         \`bassboost\`
         \`8D\`
@@ -110,7 +110,7 @@ async execute(message, args, client) {
         \`clear\`   ---  removes all filters`)
         .setFooter(`${message.author.username}#${message.author.discriminator}`, message.member.user.displayAvatarURL({ dynamic: true }))
         )
-        break;
+      break;
     }
 
     //set choice to zero
